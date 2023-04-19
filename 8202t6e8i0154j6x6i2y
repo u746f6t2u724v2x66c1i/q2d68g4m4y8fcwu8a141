@@ -1,0 +1,20 @@
+num_commands = gets.to_i
+
+stacks = [[], [], []]
+
+num_commands.times do
+  command = gets.chomp.split
+  if command[0] == "push"
+    stack_num = command[1].to_i - 1
+    stacks[stack_num].push(command[2].to_i)
+  elsif command[0] == "pop"
+    stack_num = command[1].to_i - 1
+    stacks[stack_num].pop if !stacks[stack_num].empty?
+  end
+end
+
+stacks.each do |stack|
+  stack.reverse.each do |element|
+    puts element
+  end
+end
